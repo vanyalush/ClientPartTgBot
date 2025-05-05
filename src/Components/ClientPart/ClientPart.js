@@ -5,7 +5,8 @@ import './styles/ClientPart.css'
 import Difficulties from "./UI/Difficulties/Difficulties";
 import Motivation from "./UI/MotivationCont/Motivation";
 import EveryDayQues from "./UI/EveryDayQues/EveryDayQues";
-import AuthButton from "./UI/Button/AuthButton";
+import {Link} from "react-router-dom";
+import {CHARACTER_ROUTE} from "../../utils/consts";
 
 const ClientPart = () => {
     return (
@@ -14,7 +15,7 @@ const ClientPart = () => {
             <Container className='ClientCont'>
                 <EveryDayQues/>
                 <Motivation/>
-                <AuthButton>Создать персонажа</AuthButton>
+                <Link className='createCharacter' to={CHARACTER_ROUTE}>Создать персонажа</Link>
                 <div className='defaultQues'>
                     <div className='textDefQues'>
                         <box-icon name='objects-vertical-bottom' className='iconDiff'></box-icon>

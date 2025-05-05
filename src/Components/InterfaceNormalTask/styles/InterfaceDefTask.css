@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.fileInput{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 60px;
+    margin-bottom: 140px;
+}
+h4{
+    font-size: 20px;
+    width: 160px;
+}
+.file{
+    display: flex;
+    width: 200px;
+    height: 80px;
+    text-align: center;
+    margin-top: 50px;
+    padding: 6px 10px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+}
+.uploadCont{
+    margin-left: 100px;
+}
+.upload{
+    display: flex;
+    border: none;
+    margin-top: 160px;
+}
+.upload:hover{
+    scale: 0.98
+}

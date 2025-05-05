@@ -1,8 +1,8 @@
 import React from 'react';
 import {Container, Dropdown} from "react-bootstrap";
-import './Difficulties.css'
-import {DEFAULT_TASK} from "../../../../utils/consts";
+import './Difficulties.css';
 import {Link} from "react-router-dom";
+import {EASY_TASK, HARD_TASK, NORMAL_TASK} from "../../../../utils/consts";
 
 const Difficulties = () => {
     return (
@@ -14,7 +14,7 @@ const Difficulties = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='dropMenu'>
-                        <Dropdown.Item><Link className='dropItemTransfer' to={DEFAULT_TASK}>Начать</Link></Dropdown.Item>
+                        <Dropdown.Item><Link className='dropItemTransfer' to={EASY_TASK}>Начать</Link></Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
@@ -25,7 +25,7 @@ const Difficulties = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='dropMenu'>
-                        <Dropdown.Item><Link className='dropItemTransfer' to={DEFAULT_TASK}>Начать</Link></Dropdown.Item>
+                        <Dropdown.Item><Link className='dropItemTransfer' to={NORMAL_TASK}>Начать</Link></Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
@@ -36,7 +36,7 @@ const Difficulties = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='dropMenu'>
-                        <Dropdown.Item><Link className='dropItemTransfer' to={DEFAULT_TASK}>Начать</Link></Dropdown.Item>
+                        <Dropdown.Item><Link className='dropItemTransfer' to={HARD_TASK}>Начать</Link></Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>

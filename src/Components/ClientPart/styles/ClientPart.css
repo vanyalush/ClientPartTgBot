@@ -25,7 +25,7 @@ h2{
     align-items: center;
     width: 55vh;
     height: 15vh;
-    margin-top: 4.4vh;
+    margin-top: 3vh;
     background-color: #D6D6D6;
     border-radius: 25px;
 }
@@ -42,4 +42,22 @@ h3{
 .iconDiff{
     background-color: transparent;
     margin-right: 3px;
+}
+.createCharacter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    background-color: #5F1016;
+
+    width: 300px;
+    height: 35px;
+    border-radius: 10px;
+}
+.createCharacter:hover{
+    scale: 0.99;
 }
