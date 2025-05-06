@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from "../index";
 import {authRoutes, publicRoutes} from "../routes";
-import {LOGIN_ROUTE} from "../utils/consts";
+import {INTERFACE_ROUTE, LOGIN_ROUTE} from "../utils/consts";
 import {Navigate, Route, Routes} from "react-router-dom";
 
 const AppRouter = () => {
@@ -16,7 +16,7 @@ const AppRouter = () => {
             {publicRoutes.map(({path,Component}) =>
                 <Route key={path} path={path} element={<Component/>} />
             )}
-            <Route path="*" element={<Navigate to={LOGIN_ROUTE}/>}/>
+            <Route path="*" element={<Navigate to={INTERFACE_ROUTE}/>}/>
         </Routes>
     );
 };
