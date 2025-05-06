@@ -11,7 +11,8 @@ const TaskCont = () => {
 
     useEffect(() => {
         setEasyTask(easyTasks[Math.floor(Math.random() * easyTasks.length)]);
-    })
+    }, [])
+
     return (
         <Container className="taskCont">
             <div className="rowTask">

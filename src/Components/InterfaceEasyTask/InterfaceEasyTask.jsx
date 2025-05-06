@@ -44,7 +44,6 @@ const InterfaceEasyTask = () => {
                 </div>
                 <button className='upload'>Отправить</button>
             </Container>
-
         </div>
     );
 };

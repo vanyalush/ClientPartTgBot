@@ -1,8 +1,7 @@
 import {
     LOGIN_ROUTE,
     REGISTRATION_ROUTE,
-    INTERFACE_ROUTE,
-    DEFAULT_TASK, CHARACTER_ROUTE, EASY_TASK, NORMAL_TASK, HARD_TASK, EVERYDAY_TASK
+    INTERFACE_ROUTE, CHARACTER_ROUTE, EASY_TASK, NORMAL_TASK, HARD_TASK, EVERYDAY_TASK
 } from './utils/consts'
 import AuthForm from './Components/Auth/AuthForm'
 import ClientPart from './Components/ClientPart/ClientPart'
