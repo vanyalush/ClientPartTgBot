@@ -8,19 +8,25 @@ import './App.css'
 
 const App:FC = ()=> {
 
-    const {user} = useContext(Context);
-
+    const {store} = useContext(Context);
     useEffect( () => {
         if (localStorage.getItem("token")){
-            user.checkAuth()
+            store.checkAuth().catch(() => {
+                localStorage.removeItem("token");
+                store.setAuth(false);
+            });
+        } else{
+            store.setAuth(false);
         }
-    }, [user])
-
-    if(user.isLoading){
+    }, [])
+    if(store.isLoading){
         return (
-            <Spinner animation="border" role="status" style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
+            <div>
+                <Spinner animation="border" role="status"
+                         style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
         )
     }
 

@@ -5,13 +5,13 @@ import UserStore from "./store/UserStore";
 import './index.css'
 
 interface State{
-    user:UserStore;
+    store:UserStore;
 }
 
-const user = new UserStore();
+const store = new UserStore();
 
 export const Context = createContext<State>({
-    user,
+    store,
 })
 
 const root = ReactDOM.createRoot(
@@ -19,7 +19,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <Context.Provider value={{user}}>
+        <Context.Provider value={{store}}>
             <App/>
         </Context.Provider>
     </React.StrictMode>

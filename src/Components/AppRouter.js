@@ -5,18 +5,18 @@ import {INTERFACE_ROUTE, LOGIN_ROUTE} from "../utils/consts";
 import {Navigate, Route, Routes} from "react-router-dom";
 
 const AppRouter = () => {
-    const {user} = useContext(Context);
+    const {store} = useContext(Context);
 
-    console.log(user)
+    console.log(store)
     return (
         <Routes>
-            {user.isAuth && authRoutes.map(({path, Component}) =>
+            {store.isAuth && authRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component/>} />
             )}
             {publicRoutes.map(({path,Component}) =>
                 <Route key={path} path={path} element={<Component/>} />
             )}
-            <Route path="*" element={<Navigate to={INTERFACE_ROUTE}/>}/>
+            <Route path="*" element={<Navigate to={LOGIN_ROUTE}/>}/>
         </Routes>
     );
 };

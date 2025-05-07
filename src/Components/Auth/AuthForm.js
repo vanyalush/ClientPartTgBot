@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Context} from '../../index'
 import {observer} from "mobx-react-lite";
 import './AuthComponents/styles/AuthForm.css'
-import {Container} from "react-bootstrap";
+import {Container, Spinner} from "react-bootstrap";
 import AuthButton from "./AuthComponents/UI/Button/AuthButton";
 import {INTERFACE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../../utils/consts";
 import {Link, useLocation, useNavigate} from "react-router-dom";
@@ -14,19 +14,20 @@ const AuthForm = observer(() => {
     const history = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {user} = useContext(Context);
+    const {store} = useContext(Context);
     const [error, setError] = useState(null);
     const click = async () => {
         try {
             let data;
             if (isLogin) {
-                data = await user.login(email, password);
+                data = await store.login(email, password);
             } else {
-                data = await user.registration(email, password);
+                data = await store.registration(email, password);
             }
-            user.setUser(data.user)
-            user.setAuth(true)
+            store.setUser(data.user)
+            store.setAuth(true)
             history(INTERFACE_ROUTE)
+
         } catch (e) {
             const errorMessage = e.response?.data?.message || "Произошла ошибка";
             setError(errorMessage);
@@ -67,7 +68,6 @@ const AuthForm = observer(() => {
                 <AuthButton onClick={click}>
                     {isLogin ? 'Войти' : 'Регистрация'}
                 </AuthButton>
-
             </div>
         </Container>
     );

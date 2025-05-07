@@ -8,7 +8,7 @@ import {Context} from "../../index";
 import {Link} from "react-router-dom";
 
 const NavBar = ({ name, ...props }) => {
-    const {user} = useContext(Context);
+    const {store} = useContext(Context);
     const [showMainMenu, setShowMainMenu] = useState(false);
 
     const handleMainMenuClose = () => setShowMainMenu(false);
@@ -42,7 +42,7 @@ const NavBar = ({ name, ...props }) => {
                             <button className='offcanvasTitle'>
                                 <box-icon className='titleIcon' name='log-out' color='#ffffff'></box-icon>
                                 <Link className='offcanvasLink' to={LOGIN_ROUTE}
-                                      onClick={() => user.logout()}>Выйти</Link>
+                                      onClick={() => store.logout()}>Выйти</Link>
                             </button>
                         </Offcanvas.Body>
                     </Offcanvas>

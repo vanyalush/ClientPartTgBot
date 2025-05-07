@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import NavBar from "../NavBar/NavBar";
 import {Container} from "react-bootstrap";
 import './styles/ClientPart.css'
@@ -7,6 +7,7 @@ import Motivation from "./UI/MotivationCont/Motivation";
 import EveryDayQues from "./UI/EveryDayQues/EveryDayQues";
 import {Link} from "react-router-dom";
 import {CHARACTER_ROUTE} from "../../utils/consts";
+import {Context} from "../../index";
 
 const ClientPart = () => {
     return (
