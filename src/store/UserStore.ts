@@ -4,11 +4,13 @@ import AuthService from "../services/AuthService";
 import { API_URL } from "../http";
 import { AuthResponse } from "../models/response/AuthResponse";
 import { IUser } from "../models/IUser";
+import {INTERFACE_ROUTE} from "../utils/consts";
 
 export default class UserStore {
     user= {} as IUser;
     isAuth = false;
     isLoading = false;
+    history: (path: string) => void = () => {};
 
     constructor() {
         makeAutoObservable(this);
@@ -32,6 +34,8 @@ export default class UserStore {
             localStorage.setItem("token", response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+            this.history(INTERFACE_ROUTE);
+
             return response;
         } catch (e: unknown) {
             const error = e as AxiosError;
@@ -72,7 +76,6 @@ export default class UserStore {
             this.setAuth(false);
             return;
         }
-
         this.setLoading(true);
         try {
             const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
@@ -85,8 +88,11 @@ export default class UserStore {
         } catch (e) {
             this.setAuth(false);
             localStorage.removeItem('token');
+            console.error("Refresh token failed:", e);
         } finally {
             this.setLoading(false);
+            console.log("Sending refresh request to:", `${API_URL}/refresh`);
+            console.log("Current token:", localStorage.getItem("token"));
         }
     }
 }
